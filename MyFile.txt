@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class CheckSum {
+  
+   //main method
+   public static void main(String[] args) {
+      
+       Scanner sc=new Scanner(System.in);
+       //Enter the first 9 Digits of an ISBN integer :
+       System.out.println("Enter the first 9 Digits of an ISBN integer : ");
+      
+       String d1to9=sc.next();       
+      
+       int d10=0;
+      
+       System.out.println("Digit 1 to 9 is is:"+ d1to9);
+      
+       for(int i=0;i<d1to9.length();i++)
+   {
+   char c=d1to9.charAt(i);
+   d10= d10 + (i+1)*Character.getNumericValue(c);   //013601267 013031997
+   }
+      
+       d10=d10%11;
+      
+       if(d10==10)
+       {
+       System.out.println("Checksum is 10 so d10 is X");
+       System.out.println("The ISBN 10 number is: "+d1to9+'X');
+       }
+       else{      
+       System.out.println("d10 is is: "+d10);
+       System.out.println("The ISBN 10 number is: "+d1to9+d10);
+       }      
+   }
+}
